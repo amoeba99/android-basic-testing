@@ -29,4 +29,10 @@ public class EmailValidationTest {
         emailValidation.emailFormat();
     }
 
+    @Test
+    public void EmailIsNotEmpty() throws RuleException{
+        EmailValidation emailValidation = new EmailValidation("starlight");
+        assertTrue("Email is empty", emailValidation.emailIsNotEmpty());
+    }
+
 }

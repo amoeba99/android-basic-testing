@@ -18,12 +18,17 @@ public class EmailValidation {
     }
 
     public boolean validate() throws RuleException{
-
+        emailIsNotEmpty();
         emailFormat();
         return true;
     }
 
+    public boolean emailIsNotEmpty() throws RuleException{
+        if(!email.isEmpty())
+            return true;
+        throw new RuleException("Email is empty");
 
+    }
 
     public boolean emailFormat() throws RuleException {
         if(!Patterns.EMAIL_ADDRESS.matcher(this.email).matches())
