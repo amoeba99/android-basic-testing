@@ -10,21 +10,29 @@ import cc.somkiat.basicunittesting.exception.RuleException;
 
 public class NameValidation {
 
-    public String text;
+    public String name;
 
     public NameValidation(String text){
-        this.text = text;
+        this.name = text;
     }
 
     public boolean validate() throws RuleException{
         nameIsNotEmpty();
+        nameFormat();
         return true;
     }
 
     public boolean nameIsNotEmpty() throws RuleException {
-        if(!text.isEmpty())
+        if(!this.name.isEmpty())
             return true;
         throw new RuleException("Name is empty please enter name");
+    }
+
+    public boolean nameFormat() throws RuleException {
+        if(!Pattern.matches("^[a-zA-Z]+$", this.name)){
+            throw new RuleException("Name is incorrect format");
+        }
+        return true;
     }
 
 }

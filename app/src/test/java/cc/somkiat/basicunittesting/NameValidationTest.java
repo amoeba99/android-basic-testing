@@ -27,6 +27,12 @@ public class NameValidationTest {
         nameValidation.nameIsNotEmpty();
     }
 
+    @Test
+    public void NameIsCorrect() throws RuleException{
+        NameValidation nameValidation = new NameValidation("Viriya");
+        assertTrue("Name is Incorrect format", nameValidation.nameFormat());
+    }
+
 
 
 }
