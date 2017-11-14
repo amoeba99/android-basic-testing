@@ -2,21 +2,40 @@ package cc.somkiat.basicunittesting;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.TextView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import cc.somkiat.basicunittesting.exception.RuleException;
+import cc.somkiat.basicunittesting.validation.NameValidation;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.userNameInput)
+    TextView name;
+    @BindView(R.id.emailInput)
+    TextView email;
+    @BindView(R.id.dateOfBirthInput)
+    TextView birthday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this, this);
+
     }
 
-    public void onSaveClick(View view) {
-        //TODO
-    }
+    @OnClick(R.id.saveButton)
+    public void onSave(){
 
-    public void onRevertClick(View view) {
-        //TODO
+
+
     }
-}
+    @OnClick(R.id.revertButton)
+    public void onRevert(){
+        name.setText("");
+        email.setText("");
+    }
+    }
