@@ -2,6 +2,7 @@ package cc.somkiat.basicunittesting;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -16,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
     TextView name;
     @BindView(R.id.emailInput)
     TextView email;
-    @BindView(R.id.dateOfBirthInput)
-    TextView birthday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.saveButton)
     public void onSave(){
+            try {
+                NameValidation nameValidation = new NameValidation(name.getText().toString());
+                nameValidation.validate();
+            }catch (RuleException e){
+                Log.e("error", e.getMessage());
+            }
+
 
 
 

@@ -1,5 +1,7 @@
 package cc.somkiat.basicunittesting;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 import cc.somkiat.basicunittesting.exception.RuleException;
@@ -14,9 +16,17 @@ import static junit.framework.Assert.assertTrue;
 public class NameValidationTest {
 
     @Test
-    public void NameIsEmpty() throws RuleException {
-        NameValidation nameValidation = new NameValidation("");
-        assertTrue("Name is not empty", nameValidation.validate());
+    public void NameIsNotEmpty() throws RuleException {
+        NameValidation nameValidation = new NameValidation("Viriya");
+        assertTrue("Name is empty", nameValidation.nameIsNotEmpty());
     }
+
+    @Test(expected = RuleException.class)
+    public void NameIsEmpty() throws RuleException{
+        NameValidation nameValidation = new NameValidation("");
+        nameValidation.nameIsNotEmpty();
+    }
+
+
 
 }

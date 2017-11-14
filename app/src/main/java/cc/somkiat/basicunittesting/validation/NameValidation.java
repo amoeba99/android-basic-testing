@@ -17,14 +17,14 @@ public class NameValidation {
     }
 
     public boolean validate() throws RuleException{
-        nameIsEmpty();
+        nameIsNotEmpty();
         return true;
     }
 
-    public boolean nameIsEmpty() throws RuleException {
-        if(text.isEmpty())
+    public boolean nameIsNotEmpty() throws RuleException {
+        if(!text.isEmpty())
             return true;
-        throw new RuleException("Name is empty");
+        throw new RuleException("Name is empty please enter name");
     }
 
 }
