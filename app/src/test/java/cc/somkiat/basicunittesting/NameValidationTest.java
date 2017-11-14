@@ -33,6 +33,12 @@ public class NameValidationTest {
         assertTrue("Name is Incorrect format", nameValidation.nameFormat());
     }
 
+    @Test(expected = RuleException.class)
+    public void NameIsIncorrect() throws RuleException{
+        NameValidation nameValidation = new NameValidation("");
+        nameValidation.nameFormat();
+    }
+
 
 
 }
