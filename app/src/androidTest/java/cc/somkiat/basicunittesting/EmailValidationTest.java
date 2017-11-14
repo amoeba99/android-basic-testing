@@ -35,4 +35,10 @@ public class EmailValidationTest {
         assertTrue("Email is empty", emailValidation.emailIsNotEmpty());
     }
 
+    @Test(expected = RuleException.class)
+    public void EmailIsEmpty() throws RuleException{
+        EmailValidation emailValidation = new EmailValidation("");
+        emailValidation.emailIsNotEmpty();
+    }
+
 }
