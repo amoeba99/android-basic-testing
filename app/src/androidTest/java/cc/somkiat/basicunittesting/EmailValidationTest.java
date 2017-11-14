@@ -23,5 +23,10 @@ public class EmailValidationTest {
         assertTrue("email is incorrect", emailValidation.emailFormat());
     }
 
+    @Test(expected = RuleException.class)
+    public void EmailIsIncorrect() throws RuleException{
+        EmailValidation emailValidation = new EmailValidation("765.346");
+        emailValidation.emailFormat();
+    }
 
 }

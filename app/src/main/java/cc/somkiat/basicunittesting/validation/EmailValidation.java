@@ -18,7 +18,7 @@ public class EmailValidation {
     }
 
     public boolean validate() throws RuleException{
-        
+
         emailFormat();
         return true;
     }
